@@ -1,0 +1,158 @@
+%% Allgemeine Seiteneinstellungen
+\documentclass[
+        11pt,                 % Globale Schriftgröße im Fließtext
+        a4paper,              % Papier im A4-Format
+        twoside,              % Doppelseitiger Druck
+        % open=any,             % bestimmt Kapitelanfang, nur bei
+                                %   
+        titlepage,            % Erste Seite ist Titelseite
+        BCOR=10mm,            % Bindungskorrektur
+        % headings=small        % Kleinere Überschriftengröße
+]{scrartcl}                   % KOMA-Script-Variante von Report
+
+\usepackage[                  
+        top=2.5cm,
+        right=2cm,
+        bottom=2.5cm,
+        left=2.5cm,
+        includeheadfoot
+]{geometry}                   % Ändert Seitenränder, um Vorgabe
+                                % zu entsprechen
+
+\usepackage{scrhack}          % verbessert Zusammenspiel von KOMA-
+                                % Script mit anderen Paketen
+
+\usepackage[utf8]{inputenc}   % UTF-8 Support
+\usepackage[ngerman]{babel}   % Sprachpaket, deutsch einzige Sprache
+\usepackage[
+        babel,
+        german=quotes
+]{csquotes}                   % Globale Einstellung zum Zitieren
+\usepackage{lmodern}          % Verbesserte Schriftart
+\usepackage{microtype}        % Verbessert Typografie
+\usepackage{enumitem}         % Erweitertes Spiegelstrich-Paket
+\usepackage[                  % Erlaubt Links, verlinkt Inhalts-
+        hidelinks               % verzeichnis
+]{hyperref}
+
+
+%% Grafiken
+\usepackage{graphicx}         % Erweitertes Grafik-Paket
+
+%% Tabellen
+\usepackage{tabularx}         % Tabellen-Paket mit Erweiterungen
+\usepackage{arydshln}         % Unterstützt das Zeichnen von 
+                                % vertikalen und horizontalen Linien
+                                % in Tabellen
+
+%% Farben
+\usepackage{xcolor, colortbl}
+\definecolor{hellblau}{rgb}{0,0.55,0.8}
+\definecolor{hellrot}{rgb}{0.8,0.1,0.1}
+\definecolor{textmarker}{rgb}{1,0.30,0}
+%% code-listings-farben
+\definecolor{gray}{rgb}{0.95,0.95,0.95}
+\definecolor{orange}{rgb}{0.80,0.40,0.0}
+\definecolor{purple}{rgb}{0.33,0.10,0.55}
+
+%% Auflistungen
+\usepackage{listings}         % Unterstüzt Code-Listungen
+
+\lstdefinestyle{customjava}{  % Style-Settings für Java
+  abovecaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=Java,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{hellrot},
+  commentstyle=\itshape\color{purple},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customc}{  % Style-Settings für Java
+  abovecaptionskip=1\baselineskip,
+  % breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  % keywordstyle=\bfseries\color{hellrot},
+  % commentstyle=\itshape\color{purple},
+  % identifierstyle=\color{blue},
+  % stringstyle=\color{orange},
+}
+
+\lstset{%                     % Allgemeine Style-Settings für
+% frame=single,                 % Auflistungen
+captionpos=b,
+% backgroundcolor=\color{gray},
+numbers=left,
+style=customc,
+title=\lstname,
+tabsize=2
+}
+
+%% Darstellung der Kopfzeile
+\usepackage{scrpage2}         % Paket zur Einstellung von Kopf-/
+                                % und Fußzeilen
+\pagestyle{scrheadings}
+\clearscrheadfoot
+%% ungerade seite
+\rohead{\pagemark}
+\lohead{\headmark}
+%% gerade seite
+\lehead{\pagemark}
+\rehead{\headmark}
+\automark[subsection]{section}   % [rechteSeite]{linkeSeite}
+\setheadsepline{.4pt}         % Linie unter der Kopfzeile 
+
+%% Darstellung Fußzeile
+%% ungerade Seiten
+\lofoot{\vspace{-2mm}Hochschule Fulda}
+\rofoot{\vspace{-2mm}Autor: \mitautor}
+%% gerade Seiten
+\lefoot{\vspace{-2mm}Hochschule Fulda}
+\refoot{\vspace{-2mm}Autor: \mitautor}
+\setfootsepline{.4pt}
+
+%% Kapitelanfangsseiten mit Paginierung mitte unten
+% \renewcommand*{\chapterpagestyle}{scrplain}
+\cfoot[\pagemark]
+
+
+%% Literaturverzeichnis
+\usepackage[
+          backend=biber,
+          style=alphabetic
+          ]{biblatex}
+\bibliography{documentation}
+\addbibresource{documentation.bib}
+\defbibheading{bibliography}[\bibname]{\section*{Literaturverzeichnis}}
+
+
+%% Makros
+\newcommand{\mitautor}{Max Mustermann}
+
+\begin{document}
+\input{titelseite}
+\pagenumbering{Roman} %% römische paginierung
+\setcounter{page}{1}
+\thispagestyle{empty}  %% keine kopfzeile
+
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{sebsAbschnitt}
+\input{eugensAbschnitt}
+\input{mathiasAbschnitt}
+
+\thispagestyle{empty}  %% keine kopfzeile
+\printbibliography %
+\end{document}

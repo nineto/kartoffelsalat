@@ -1,0 +1,44 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.7 $
+% $ biber version 0.9.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber or bibtex as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \entry{lin1973}{article}{}
+    \name{labelname}{2}{}{%
+      {{hash=ee5ad1086dab61efed0851b6802d25e4}{Lin}{L\bibinitperiod}{Shen}{S\bibinitperiod}{}{}{}{}}%
+      {{hash=1052228cbdc74ef71d9c24c30ddc01ef}{Kernighan}{K\bibinitperiod}{Brian\bibnamedelima W.}{B\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{2}{}{%
+      {{hash=ee5ad1086dab61efed0851b6802d25e4}{Lin}{L\bibinitperiod}{Shen}{S\bibinitperiod}{}{}{}{}}%
+      {{hash=1052228cbdc74ef71d9c24c30ddc01ef}{Kernighan}{K\bibinitperiod}{Brian\bibnamedelima W.}{B\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+    }
+    \strng{namehash}{8dbb7ca376d9c40a1b134cdb0104f283}
+    \strng{fullhash}{8dbb7ca376d9c40a1b134cdb0104f283}
+    \field{labelalpha}{LK73}
+    \field{sortinit}{L}
+    \field{journaltitle}{Operations Research}
+    \field{title}{An Effective Heuristic Algorithm for the Travelling-Salesman Problem}
+    \field{volume}{21}
+    \field{year}{1973}
+    \field{pages}{498\bibrangedash 516}
+  \endentry
+
+\endrefsection
+\endinput
+
